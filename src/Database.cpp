@@ -11,8 +11,16 @@ void Database::write(vector<vector<string>> mainList)
         {
             for (int list_index = 0; list_index < (int)mainList[user_index].size(); list_index++)
             {
-                db << mainList[user_index][list_index] << "\n";
+                if (list_index == 0)
+                {
+                    db << "#" << mainList[user_index][list_index] << "\n";
+                }
+                else
+                {
+                    db << mainList[user_index][list_index] << "\n";
+                }
             }
+            db << "%\n";
         }
     }
     else

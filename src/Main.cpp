@@ -10,10 +10,14 @@ int main(int arg_count, char *args[])
     {
         simpleList.name = string(args[1]);
         simpleList.mainList = data.read();
-        simpleList.find_userList();
+
+        bool userFound = simpleList.find_userList();
+        if (!userFound)
+        {
+            cout << "New user added\n";
+        }
         simpleList.print_menu();
-        // data.write(simpleList.list);
-        //   data.read();
+        data.write(simpleList.mainList);
     }
     else
     {

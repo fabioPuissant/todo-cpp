@@ -49,7 +49,7 @@ void List::add_item()
     cout << "Successfully added an item to the list \n\n\n";
     cin.clear();
 
-    print_menu();
+    go_to_menu();
 }
 
 void List::delete_item()
@@ -62,16 +62,19 @@ void List::delete_item()
         {
             cout << i << ": " << list[i] << "\n";
         }
-        int index;
-        cin >> index;
 
-        if (index >= (int)list.size())
+        int choiceIndex;
+        cin >> choiceIndex;
+
+        if (choiceIndex >= (int)list.size())
         {
-            cout << index << ": is not a valid index, quiting program...";
+            cout << choiceIndex << ": is not a valid index, quiting program...";
             exit(0);
         }
 
-        //list.erase(index);
+        list.erase(list.begin() + choiceIndex);
+        cout << "Item at index: " << choiceIndex << " successfully deleted.\n";
+        go_to_menu();
     }
     else
     {
@@ -90,16 +93,5 @@ void List::print_list()
              << list[list_index] << "\n";
     }
 
-    cout << "M - Menu \n";
-    char choice;
-    cin >> choice;
-    if (choice == 'M' || choice == 'm')
-    {
-        print_menu();
-    }
-    else
-    {
-        cout << "Invalid Choice, quiting now ...\n";
-        exit(0);
-    }
+    go_to_menu();
 }

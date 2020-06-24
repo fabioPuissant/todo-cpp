@@ -5,6 +5,22 @@ using namespace std;
 class List
 {
 private:
+    void go_to_menu()
+    {
+        cout << "M - Menu \n";
+        char choice;
+        cin >> choice;
+        if (choice == 'M' || choice == 'm')
+        {
+            print_menu();
+        }
+        else
+        {
+            cout << "Invalid Choice, quiting now ...\n";
+            exit(0);
+        }
+    }
+
 protected:
 public:
     List()

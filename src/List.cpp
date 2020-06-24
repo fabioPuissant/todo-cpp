@@ -16,7 +16,7 @@ void List::print_menu()
 
     if (choice == 4)
     {
-        exit(0);
+        return;
     }
     else if (choice == 3)
     {
@@ -47,7 +47,6 @@ void List::add_item()
     list.push_back(item);
 
     cout << "Successfully added an item to the list \n\n\n";
-    cin.clear();
 
     go_to_menu();
 }
@@ -69,7 +68,7 @@ void List::delete_item()
         if (choiceIndex >= (int)list.size())
         {
             cout << choiceIndex << ": is not a valid index, quiting program...";
-            exit(0);
+            return;
         }
 
         list.erase(list.begin() + choiceIndex);

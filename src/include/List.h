@@ -17,7 +17,7 @@ private:
         else
         {
             cout << "Invalid Choice, quiting now ...\n";
-            exit(0);
+            return;
         }
     }
 
